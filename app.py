@@ -7,13 +7,13 @@ app = Flask(__name__)
 
 
 def get_label_prediction(model, X_test):
-    # get probabilities instead of predicted labels, since we want to collect top 3
+    # get probabilities
     probabilities = model.predict_proba(X_test)
 
-    # get best fitting label
+    # get label
     best_n = np.argsort(probabilities, axis=1)[:, -1:]
 
-    # get label prediction
+    # predict a label
     predictions = [[model.classes_[predicted_cat] for predicted_cat in prediction] for prediction in best_n]
 
     predictions = [item[::-1] for item in predictions]
@@ -54,4 +54,4 @@ def predict():
 
 if __name__ == "__main__":
     app.secret_key = 'superSecretKey'
-    app.run(debug=True, host='0.0.0.0',port=5000)
+    app.run(debug=False, host='0.0.0.0',port=5000)
