@@ -19,14 +19,14 @@
 <body>
 <div class="login">
 
-    <h2>Fake News Detector Using Logistic Regression and NLP</h2>
+    <h2>Fake News Predictor using NLP and XGBoost classifier</h2>
     <form action="{{ url_for('predict') }}" method="post">
 
         <label>
 <textarea class="textarea"
           rows="50"
           cols="50"
-          placeholder="Copy and Paste an article to see what the Logistic Regression model predicts!" required
+          placeholder="Copy and Paste an article to see what the prediction is using XGBoost!" required
           type="text" name="article">
 </textarea>
         </label>
